@@ -11,12 +11,12 @@ sub EVENT_SAY {
 	}
 	
 	if ($text=~/valor/i) {
-		$npc->CastSpell(312,$userid); # Spell: Valor
+		$npc->CastSpell(312,$userid);
 	}
 
 	if ($text=~/aegolism/i) {
 		if ($ulevel>29) {
-			$npc->CastSpell(1447,$userid); # Spell: Aegolism
+			$npc->CastSpell(1447,$userid);
 		} else {
 			quest::say("You are not ready for what I have to offer");
 		}
@@ -24,7 +24,7 @@ sub EVENT_SAY {
 
 	if ($text=~/virtue/i) {
 		if ($ulevel>50) {
-			$npc->CastSpell(3467,$userid); # Spell: Virtue
+			$npc->CastSpell(3467,$userid);
 		} else {
 			quest::say("You are not ready for what I have to offer");
 		}

@@ -34,7 +34,7 @@ sub EVENT_ITEM {
    quest::faction(448,-100); # -Kromzek
    quest::exp(1000); 
    #Summon: Hsagra's Wrath (19470)
-   quest::summonitem(19470); # Item: Spell: Hsagra's Wrath
+   quest::summonitem(19470);
   } 
    plugin::return_items(\%itemcount);
 }

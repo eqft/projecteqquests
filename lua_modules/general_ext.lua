@@ -39,3 +39,25 @@ function eq.ZoneMarquee(color,opacity,fade_in,fade_out,duration,message)
 		end
 	end
 end
+
+function eq.ReadFile(file)
+	local f = io.open(file, "rb")
+	if f then f:close() end
+	lines = {}
+	if f ~= nil then
+		for line in io.lines(file) do 
+			lines[#lines + 1] = line
+		end
+	end
+	return lines
+end
+
+function eq.GetSettings()
+	local json = require "JSON"
+	local Message = eq.ReadFile("eqemu_config.json")
+	local configFile = ""
+	for k,v in pairs(Message) do
+		configFile = configFile .. v
+	end
+	return json:decode(configFile)
+end

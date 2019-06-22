@@ -10,7 +10,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 1666})) then -- Part of Shaman Epic 1.0
 		e.self:Say("Ahhh, tank you, now me can...OH LOOK!! DA SIGN!!!! Oh, sorry you missed it. The sign show you where to wait for da test. Follow me...I like you so I take you there. We goin for a swim, " .. e.other:GetName() .. "!");
 		e.other:Ding();
-		e.other:Faction(404,50,0); -- Faction: Truespirit
+		e.other:Faction(404,50,0);
 		e.other:AddEXP(1000);
 		e.self:Say("Ok shaman, let us be off.");
 		eq.start(57);
@@ -21,12 +21,12 @@ end
 function event_waypoint_arrive(e)
 	if(e.wp == 7) then
 		e.self:Say("Ok, here is place for you to for waiting. Hab fun shaman!");
-		eq.set_timer("depop",360000);
+		eq.set_timer("depop", 15000);
 	end
 end
 
 function event_timer(e)
-	eq.spawn2(98046,0,0,4209.4,-1575.5,-289.4,362); -- NPC: Srafen_the_Soaked
+	eq.spawn2(98046,0,0,4209.4,-1575.5,-289.4,362);
 	eq.depop_with_timer();
 end
 

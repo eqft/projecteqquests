@@ -14,11 +14,11 @@ sub EVENT_ITEM {
   }
   elsif (plugin::check_handin(\%itemcount, 18247 => 1)) {
     quest::say("No, NO! I want the goblin scout beads and the legion order.");
-    quest::summonitem(18247); # Item: Legion Order
+    quest::summonitem(18247);
   }
   elsif (plugin::check_handin(\%itemcount, 12672 => 1)) {
     quest::say("No, NO! I want the goblin scout beads and the legion order.");
-    quest::summonitem(12672); # Item: Goblin Scout Beads
+    quest::summonitem(12672);
   }
   plugin::return_items(\%itemcount);
 }

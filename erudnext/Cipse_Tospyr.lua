@@ -14,11 +14,11 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {gold = 4})) then
-		e.self:CastSpell(12,e.other:GetID()); -- Spell: Healing
+		e.self:CastSpell(12,e.other:GetID());
 	elseif(item_lib.check_turn_in(e.trade, {gold = 3})) then
-		e.self:CastSpell(203,e.other:GetID()); -- Spell: Cure Poison
+		e.self:CastSpell(203,e.other:GetID());
 	elseif(item_lib.check_turn_in(e.trade, {gold = 2})) then
-		e.self:CastSpell(213,e.other:GetID()); -- Spell: Cure Disease
+		e.self:CastSpell(213,e.other:GetID());
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end

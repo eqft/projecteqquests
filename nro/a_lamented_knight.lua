@@ -1,5 +1,5 @@
 function event_death_complete(e)
-    eq.signal(392057, 0); -- NPC: #a_madman
+    eq.signal(392057, 0);
 end
 
 function event_spawn(e)

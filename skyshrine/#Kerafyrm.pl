@@ -5,7 +5,7 @@ sub EVENT_SPAWN {
 sub EVENT_TIMER {
  if($timer eq "despawn"){
   if($x == 1970 && $y == 2593){
-   quest::setglobal("kerafyrm",3,7,"F");
+      #quest::setglobal("kerafyrm",3,7,"F");
    quest::stoptimer("despawn");   
    quest::depop();
   }
@@ -21,7 +21,7 @@ sub EVENT_NPC_SLAY {
 }
 
 sub EVENT_DEATH_COMPLETE { #nearly forgot about this hehe
-  quest::setglobal("kerafyrm",3,7,"F"); 
+    #quest::setglobal("kerafyrm",3,7,"F"); 
   quest::stoptimer("despawn");   
   quest::depop();
 }

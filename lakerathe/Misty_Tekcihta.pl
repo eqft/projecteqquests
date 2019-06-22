@@ -16,7 +16,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 20534 => 1)) {
     quest::emote("hands you a small ring.");
-    quest::summonitem(20379); # Item: Proof of Speed
+    quest::summonitem(20379);
   }
   plugin::return_items(\%itemcount);
 }

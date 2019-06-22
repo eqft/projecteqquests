@@ -20,11 +20,11 @@ sub EVENT_ITEM {
   }
   elsif (plugin::check_handin(\%itemcount, 18242 => 1)) {
     quest::say("What?! I need the Legion Lager and the legion order.");
-    quest::summonitem(18242); # Item: Legion Order
+    quest::summonitem(18242);
   }
   elsif (plugin::check_handin(\%itemcount, 12463 => 1)) {
     quest::say("What?! I need the Legion Lager and the legion order.");
-    quest::summonitem(12463); # Item: Legion Lager
+    quest::summonitem(12463);
   }
   plugin::return_items(\%itemcount);
 }

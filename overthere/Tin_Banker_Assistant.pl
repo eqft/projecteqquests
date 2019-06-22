@@ -24,7 +24,7 @@ sub EVENT_ITEM {
 
     quest::say("*Whirrrr*");
 
-    quest::summonitem(55978); # Item: Dusty Tome
+    quest::summonitem(55978);
 
   }
   plugin::return_items(\%itemcount);

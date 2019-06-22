@@ -18,16 +18,10 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 1686 => 1)) { #Trunt's Head
-    if(defined($qglobals{Trunt}) && $qglobals{Trunt}==1) { #Trunt's Head has been turned in to Deep in Lake Rathetear
-      quest::emote("looks up and down.");
-      quest::say("Hmmm, I was hoping for something more impressive. This is just a small token of the last person who tried to interfere with my plans. He failed as shall you. But tell me truly, are you the one who has so rudely removed my students?");
-      quest::summonitem(1687); #Eye of Kaiaren
-      quest::delglobal("Trunt");
-    }
-    else {
-      quest::emote("ignores you.");
-      quest::summonitem(1686); #Trunt's Head
-    }    
+    quest::emote("looks up and down.");
+    quest::say("Hmmm, I was hoping for something more impressive. This is just a small token of the last person who tried to interfere with my plans. He failed as shall you. But tell me truly, are you the one who has so rudely removed my students?");
+    quest::summonitem(1687); #Eye of Kaiaren
+    quest::delglobal("Trunt");
   }
   else {
     quest::say("I have no use of this, $name.");

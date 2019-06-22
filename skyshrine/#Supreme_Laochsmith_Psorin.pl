@@ -19,35 +19,35 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 31140 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(31528); # Item: Akkirus' Custom Crown of the Risen
+    quest::summonitem(31528);
   }
   elsif (plugin::check_handin(\%itemcount, 31119 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(31526); # Item: Custom Scaled Knight's Helm
+    quest::summonitem(31526);
   }
   elsif (plugin::check_handin(\%itemcount, 31133 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(31527); # Item: Custom Helm of Twilight
+    quest::summonitem(31527);
   }
   elsif (plugin::check_handin(\%itemcount, 31098 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(31525); # Item: Custom Blood Lord's Crown
+    quest::summonitem(31525);
   }
   elsif (plugin::check_handin(\%itemcount, 31182 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(31529); # Item: Custom Crown of the Myrmidon
+    quest::summonitem(31529);
   }
   elsif (plugin::check_handin(\%itemcount, 26025 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(2612); # Item: Custom Cowl of Mortality
+    quest::summonitem(2612);
   }
   elsif (plugin::check_handin(\%itemcount, 25194 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(2611); # Item: Custom Crown of the Kromzek Kings
+    quest::summonitem(2611);
   }
   elsif (plugin::check_handin(\%itemcount, 30507 => 1)) {
     quest::say("Thank you, $name. Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-    quest::summonitem(2610); # Item: Custom Frostreaver's Velium Crown
+    quest::summonitem(2610);
   }
   plugin::return_items(\%itemcount);
 }

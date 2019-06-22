@@ -10,7 +10,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 62072 => 3, 62073 => 1)) {
     quest::say("Thank you for your assistance in bringing them to justice.  Please take this as a token of my thanks.");
-    quest::summonitem(62192); # Item: Ring of Sweet Serenades
+    quest::summonitem(62192);
   }
   plugin::return_items(\%itemcount);
 }

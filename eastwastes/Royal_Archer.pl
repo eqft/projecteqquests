@@ -1,3 +1,5 @@
+my $archer = undef;
+
 sub EVENT_SPAWN {
   quest::pause(2);
   $archer = undef;

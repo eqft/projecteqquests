@@ -1,5 +1,5 @@
 sub EVENT_SAY {
-$npc->CastSpell(3087,$charid); # Spell: Cazic Touch
+$npc->CastSpell(3087,$charid);
 quest::shout("SILENCE IN THE LIBRARY!");
 
 }

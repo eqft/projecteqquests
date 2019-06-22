@@ -29,25 +29,25 @@ sub EVENT_ITEM {
   #bracers
   if(plugin::check_handin(\%itemcount, 10564 => 1, 10563 => 1, 10128 => 1)) {
     quest::say("Well done. Here are your Lambent Bracers");
-    quest::summonitem(4156); # Item: Lambent Bracers
+    quest::summonitem(4156);
   }
 
   #breastplate
   if(plugin::check_handin(\%itemcount, 4100 => 1, 10565 => 1, 10118 => 1)) {
     quest::say("Well done. Here is your Lambent Breastplate.");
-    quest::summonitem(4154); # Item: Lambent Breastplate
+    quest::summonitem(4154);
   }
 
   #helm
   if(plugin::check_handin(\%itemcount, 10559 => 1, 4099 => 1, 10117 => 1)) {
     quest::say("Well done. Here is your Lambent Helm");
-    quest::summonitem(4153); # Item: Lambent Helm
+    quest::summonitem(4153);
   }
 
   #vambraces
   if(plugin::check_handin(\%itemcount, 4113 => 1, 10560 => 1, 10119 => 1)) {
     quest::say("Well done. Here are your Lambent Vambraces.");
-    quest::summonitem(4155); # Item: Lambent Vambraces
+    quest::summonitem(4155);
   }
 
 	  plugin::return_items(\%itemcount);

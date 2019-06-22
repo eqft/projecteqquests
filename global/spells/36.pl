@@ -22,18 +22,6 @@ sub EVENT_SPELL_EFFECT_CLIENT
  			quest::movepc($bindzone->{$charid},$bindx->{$charid},$bindy->{$charid},$bindz->{$charid},$bindh->{$charid});
  		}
  	}
-	if($bindzone->{$charid} == 25)
-	{
-		if(($client->GetClientVersionBit() & 4294967292)!= 0)
-		{
-			quest::MovePCInstance($bindzone->{$charid},1,$bindx->{$charid},$bindy->{$charid},$bindz->{$charid},$bindh->{$charid});
-		}
-		else 
-		{
-			quest::movepc($bindzone->{$charid},$bindx->{$charid},$bindy->{$charid},$bindz->{$charid},$bindh->{$charid});
-		}
-
-	}
  	else
  	{
  		quest::movepc($bindzone->{$charid},$bindx->{$charid},$bindy->{$charid},$bindz->{$charid},$bindh->{$charid});

@@ -2,7 +2,7 @@ function event_signal(e)
 	entity_list = eq.get_entity_list();
 
 	if(e.signal == 1) then
-		e.self:Say("Such is the will of Cazic-Thule!");
+        eq.set_timer("shout", math.random(1000));
 	elseif(e.signal == 2) then
 		local mobtypeID =  entity_list:GetMobByNpcTypeID(72003);
 		local follow_mob = mobtypeID:GetID();
@@ -10,6 +10,13 @@ function event_signal(e)
 	elseif(e.signal == 3) then
 		eq.stop_follow();
 	end
+end
+
+function event_timer(e)
+    if (e.timer == "shout") then
+        eq.stop_timer("shout");
+        e.self:Shout("Such is the will of Cazic-Thule!");
+    end
 end
 
 --Spawns an iksar broodling on the death of the golems 75% of the time.

@@ -39,12 +39,12 @@ sub EVENT_ITEM {
     
     # Shard Wurm Fangs
     elsif (plugin::check_handin(\%itemcount, 25100 => 4)) {
-      quest::summonitem(25071); # Item: Cerulean Greaves
+      quest::summonitem(25071);
     }
 
     # Ice Wyvern Stingers
     elsif (plugin::check_handin(\%itemcount, 25101 => 4)) {
-      quest::summonitem(25070); # Item: Cerulean Vambraces
+      quest::summonitem(25070);
     }
 
     else {

@@ -11,7 +11,5 @@ quest::spawn2(116553, 0,0, ($x - 10), $y, $z, $h);
 }
 
 sub EVENT_DEATH_COMPLETE {
-
-quest::signal(116119, 0); # NPC: Corbin_Blackwell
-
+    quest::signalwith(2000944, 1, 200); # NPC: Corbin_Blackwell
 }

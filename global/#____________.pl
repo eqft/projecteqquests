@@ -20,7 +20,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_kai} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$kai){
-				quest::unique_spawn(999001,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Kai
+				quest::unique_spawn(999001,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -32,7 +32,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_brutus} == $location){
 		if(!$kai && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$brutus){
-				quest::unique_spawn(999002,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Brutus
+				quest::unique_spawn(999002,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -45,7 +45,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_aristotle} == $location){
 		if(!$brutus && !$kai && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$aristotle){
-				quest::unique_spawn(999003,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Aristotle
+				quest::unique_spawn(999003,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -57,7 +57,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_zeus} == $location){
 		if(!$brutus && !$aristotle && !$kai && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$zeus){
-				quest::unique_spawn(999004,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Zeus
+				quest::unique_spawn(999004,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -69,7 +69,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_sherlock} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$kai && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$sherlock){
-				quest::unique_spawn(999005,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: ________
+				quest::unique_spawn(999005,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -81,7 +81,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_ocho} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$kai && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$ocho){
-				quest::unique_spawn(999006,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Ocho
+				quest::unique_spawn(999006,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -93,7 +93,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_toby} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$kai && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$toby){
-				quest::unique_spawn(999007,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Toby
+				quest::unique_spawn(999007,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -105,7 +105,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_gustave} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$kai && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 			if(!$gustave){
-				quest::unique_spawn(999008,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: __________
+				quest::unique_spawn(999008,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -117,7 +117,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_napoleon} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$kai && !$sprocket && !$mortimer && !$paulie){
 			if(!$napoleon){
-				quest::unique_spawn(999009,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Napoleon
+				quest::unique_spawn(999009,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -129,7 +129,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_sprocket} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$kai && !$mortimer && !$paulie){
 			if(!$sprocket){
-				quest::unique_spawn(999010,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Sprocket
+				quest::unique_spawn(999010,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -141,7 +141,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_mortimer} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$kai && !$paulie){
 			if(!$mortimer){
-				quest::unique_spawn(999011,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Mortimer
+				quest::unique_spawn(999011,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -153,7 +153,7 @@ $head = plugin::Get_rat_heading($location);
 	if($qglobals{halloween_ratter_paulie} == $location){
 		if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$kai){
 			if(!$paulie){
-				quest::unique_spawn(999012,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Paulie
+				quest::unique_spawn(999012,0,0,$x_loc,$y_loc,$z_loc,$head);
 			}
 		}
 			
@@ -225,7 +225,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_kai} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$kai){
-					quest::unique_spawn(999001,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Kai
+					quest::unique_spawn(999001,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -237,7 +237,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_brutus} == $location){
 			if(!$kai && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$brutus){
-					quest::unique_spawn(999002,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Brutus
+					quest::unique_spawn(999002,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -249,7 +249,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_aristotle} == $location){
 			if(!$brutus && !$kai && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$aristotle){
-					quest::unique_spawn(999003,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Aristotle
+					quest::unique_spawn(999003,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -261,7 +261,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_zeus} == $location){
 			if(!$brutus && !$aristotle && !$kai && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$zeus){
-					quest::unique_spawn(999004,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Zeus
+					quest::unique_spawn(999004,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -273,7 +273,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_sherlock} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$kai && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$sherlock){
-					quest::unique_spawn(999005,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: ________
+					quest::unique_spawn(999005,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -285,7 +285,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_ocho} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$kai && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$ocho){
-					quest::unique_spawn(999006,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Ocho
+					quest::unique_spawn(999006,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -297,7 +297,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_toby} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$kai && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$toby){
-					quest::unique_spawn(999007,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Toby
+					quest::unique_spawn(999007,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -309,7 +309,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_gustave} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$kai && !$napoleon && !$sprocket && !$mortimer && !$paulie){
 				if(!$gustave){
-					quest::unique_spawn(999008,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: __________
+					quest::unique_spawn(999008,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -321,7 +321,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_napoleon} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$kai && !$sprocket && !$mortimer && !$paulie){
 				if(!$napoleon){
-					quest::unique_spawn(999009,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Napoleon
+					quest::unique_spawn(999009,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -333,7 +333,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_sprocket} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$kai && !$mortimer && !$paulie){
 				if(!$sprocket){
-					quest::unique_spawn(999010,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Sprocket
+					quest::unique_spawn(999010,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -345,7 +345,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_mortimer} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$kai && !$paulie){
 				if(!$mortimer){
-					quest::unique_spawn(999011,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Mortimer
+					quest::unique_spawn(999011,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			
@@ -357,7 +357,7 @@ $head = plugin::Get_rat_heading($location);
 		if($qglobals{halloween_ratter_paulie} == $location){
 			if(!$brutus && !$aristotle && !$zeus && !$sherlock && !$ocho && !$toby && !$gustave && !$napoleon && !$sprocket && !$mortimer && !$kai){
 				if(!$paulie){
-					quest::unique_spawn(999012,0,0,$x_loc,$y_loc,$z_loc,$head); # NPC: #Paulie
+					quest::unique_spawn(999012,0,0,$x_loc,$y_loc,$z_loc,$head);
 				}
 			}
 			

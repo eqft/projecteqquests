@@ -64,16 +64,16 @@ function Start_Event()
   eq.spawn_condition("greatdivide", 0, 2, 1);
 
   -- Signal the ringtemmaster to spawn the first wave...
-  eq.signal(118173, 1); -- NPC: ringtenmaster
+  eq.signal(118173, 1);
 
   -- Spawn the Dwarf Generals with spawn commands 
   -- so they aren't depopped when Narandi is killed
   -- and the zone is reset to normal mode.
-  eq.spawn2(118169, 0, 0, -44, -792, 51, 230); -- NPC: Churn_the_Axeman
-  eq.spawn2(118172, 0, 0, -37, -788, 51, 230); -- NPC: Kargin_the_Archer
-  eq.spawn2(118171, 0, 0, -27, -788, 51, 230); -- NPC: Corbin_Blackwell
-  eq.spawn2(118170, 0, 0, -17, -788, 51, 230); -- NPC: Dobbin_Crossaxe
-  eq.spawn2(118168, 0, 0, -7,  -788, 51, 230); -- NPC: Garadain_Glacierbane
+  eq.spawn2(118169, 0, 0, -44, -792, 51, 230);
+  eq.spawn2(118172, 0, 0, -37, -788, 51, 230);
+  eq.spawn2(118171, 0, 0, -27, -788, 51, 230);
+  eq.spawn2(118170, 0, 0, -17, -788, 51, 230);
+  eq.spawn2(118168, 0, 0, -7,  -788, 51, 230);
 end
 
 function Zrelik_Say(e)
@@ -120,14 +120,19 @@ end
 
 function Seneschal_Spawn(e)
   e.self:Shout(" 'Good citizens of Thurgadin, hear me! Our city, our people, our very lives are in danger this day. The Kromrif are at this very moment marching towards us in an offensive they hope will bring about our demise...' ");
+  eq.pause(15);
 
   e.self:Shout(" 'I hereby command, by authority of Dain Frostreaver the Fourth, that all able bodied Coldain fight to the death in defense of our land. Children, disabled citzens, and unseasoned travellers are advised to evacuate immediately!' ");
+  eq.pause(15);
 
   e.self:Shout(" 'My fellow soldiers, take heart! For we are not alone in this endeavor. One among us, an outlander, has earned the title Hero of the Dain for valiant service to our people. This newcomer has brought with him allies that will fight alongside you to help bring about our victory.' ");
+  eq.pause(13);
 
   e.self:Shout(" 'My friends... Brell did not place us here so many centuries ago to be slaughtered by these heathens. Nor did our forefather, Colin Dain, sacrifice himself simply to have us fail here now. Through these events we were brought to this day to test our strength and our faith.' ");
+  eq.pause(11);
 
   e.self:Shout(" 'Will we be shackled together to slave away in Kromrif mines or will we stand united and feed these beasts Coldain blades? By Brell, I promise you, it is better to die on our feet than to live on our knees!' ");
+  eq.pause(7);
 
   e.self:Shout(" 'TROOPS, TAKE YOUR POSITIONS!!' ");
 
@@ -151,7 +156,7 @@ end
 function WaveMaster_Death(e)
   -- Send a signal to the ringtenmaster that one of the WaveMasters has 
   -- died; start a 5min timer before the next wave is spawned.
-  eq.signal(118173, 2); -- NPC: ringtenmaster
+  eq.signal(118173, 2);
 end
 
 function Narandi_Spawn(e)
@@ -170,8 +175,8 @@ end
 function Churn_Trade(e)
   local item_lib = require("items");
   if (item_lib.check_turn_in(e.trade, {item1 = 1741})) then 
-    e.other:SummonItem(1741); -- Item: Shorn Head of Narandi
-    e.other:SummonItem(1746); -- Item: Crown of Narandi
+    e.other:SummonItem(1741);
+    e.other:SummonItem(1746);
 
     e.self:Emote("pries a crown from the head of Narandi, 'The halls of Thurgadin will echo with praises to you for as long as we grace the face of this land. May this crown serve you well. Honor through battle!' ");
 
@@ -187,8 +192,8 @@ end
 function Kargin_Trade(e)
   local item_lib = require("items");
   if (item_lib.check_turn_in(e.trade, {item1 = 1741})) then 
-    e.other:SummonItem(1741); -- Item: Shorn Head of Narandi
-    e.other:SummonItem(1745); -- Item: Eye of Narandi
+    e.other:SummonItem(1741);
+    e.other:SummonItem(1745);
 
     e.self:Emote("picks up a stick and hits the back of the dismembered head with all his might, knocking one of its eyes out of the socket, 'Bastard killed my brother! Hope his ghost felt that one!' ");
 
@@ -204,8 +209,8 @@ end
 function Corbin_Trade(e)
   local item_lib = require("items");
   if (item_lib.check_turn_in(e.trade, {item1 = 1741})) then 
-    e.other:SummonItem(1741); -- Item: Shorn Head of Narandi
-    e.other:SummonItem(1744); -- Item: Earring of the Frozen Skull
+    e.other:SummonItem(1741);
+    e.other:SummonItem(1744);
 
     e.self:Emote("unhooks a glowing earring from Narandi's shorn head, 'Hmm, this looks like something special. Take it, " .. e.other:GetName() .. ", you've earned it! Be well.' ");
 
@@ -221,8 +226,8 @@ end
 function Dobbin_Trade(e)
   local item_lib = require("items");
   if (item_lib.check_turn_in(e.trade, {item1 = 1741})) then 
-    e.other:SummonItem(1741); -- Item: Shorn Head of Narandi
-    e.other:SummonItem(1743); -- Item: Faceguard of Bentos the Hero
+    e.other:SummonItem(1741);
+    e.other:SummonItem(1743);
 
     e.self:Emote("gives a gentle, warm smile and slight nod of his head in warm welcoming, 'Good day to you, " .. e.other:GetName() .. ", and welcome to the district of Selia. We are children of the light -- beings who valiantly uphold the ways of honor, valor, and merits of goodly faith and virtue. Rather, we are crusaders of these things, collectively comprising the beacon of these traits within the universe in our position in New Tanaan. We are quite pleased to have you approach us with such confidence -- perhaps the inner light has brought you to us, seeking a way to unlock the purity of these merits that you faintly mirror now. If you are seeking council in the ways of enchantments, then I would be more than pleased and honored to aid you where I can, my friend.'");
 
@@ -238,8 +243,8 @@ end
 function Garadain_Trade(e)
   local item_lib = require("items");
   if (item_lib.check_turn_in(e.trade, {item1 = 1741})) then 
-    e.other:SummonItem(1741); -- Item: Shorn Head of Narandi
-    e.other:SummonItem(1742); -- Item: Choker of the Wretched
+    e.other:SummonItem(1741);
+    e.other:SummonItem(1742);
 
     e.self:Emote("removes a choker from the severed head and returns both items to you, 'Congratulations on your victory, " .. e.other:GetName() .. ". I couldn't have done a better job myself. May Brell protect and watch over you and your friends. Farewell.'");
 

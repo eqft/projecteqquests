@@ -2,7 +2,7 @@ function event_enter_zone(e)
 	local qglobals = eq.get_qglobals(e.self);
 	if(e.self:GetLevel() >= 15 and qglobals['Wayfarer'] == nil) then
 		local zoneid = eq.get_zone_id();
-		if(e.self:GetStartZone() ~= zoneid and (zoneid == 1 or zoneid == 2 or zoneid == 3 or zoneid == 8 or zoneid == 9 
+		if(1 == 0 and e.self:GetStartZone() ~= zoneid and (zoneid == 1 or zoneid == 2 or zoneid == 3 or zoneid == 8 or zoneid == 9 
 		or zoneid == 10 or zoneid == 19 or zoneid == 22 or zoneid == 23 or zoneid == 24 or zoneid == 29 or zoneid == 30 
 		or zoneid == 34 or zoneid == 35 or zoneid == 40 or zoneid == 41 or zoneid == 42 or zoneid == 45 or zoneid == 49 
 		or zoneid == 52 or zoneid == 54 or zoneid == 55 or zoneid == 60 or zoneid == 61 or zoneid == 62 or zoneid == 67 
@@ -35,7 +35,7 @@ function event_combine_success(e)
 
 		local ctype = eq.ClassType(e.self:GetClass());
 		e.self:SummonItem(reward[ctype][tostring(e.recipe_id)]);
-		e.self:SummonItem(67704); -- Item: Vaifan's Clockwork Gemcutter Tools
+		e.self:SummonItem(67704);
 		e.self:Message(1, "Success");
 	--cleric 1.5
 	elseif(e.recipe_id == 19460) then
@@ -55,10 +55,10 @@ function event_combine_success(e)
 			eq.spawn2(181222, 0, 0, e.self:GetX()+3,e.self:GetY()+3,e.self:GetZ(),0);
 		else
 			e.self:Message(15,"The soil conditions prohibit the seed from taking hold");
-			e.self:SummonItem(72091); -- Item: Fertile Earth
-			e.self:SummonItem(62621); -- Item: Senvial's Blessing
-			e.self:SummonItem(62622); -- Item: Grinbik's Blessing
-			e.self:SummonItem(62844); -- Item: Red Dogwood Seed
+			e.self:SummonItem(72091);
+			e.self:SummonItem(62621);
+			e.self:SummonItem(62622);
+			e.self:SummonItem(62844);
 		end
 	--ranger 1.5 final
 	elseif(e.recipe_id ==13413) then
@@ -98,9 +98,9 @@ function event_combine_success(e)
 			eq.spawn2(47209, 0, 0, e.self:GetX()+10,e.self:GetY()+10,e.self:GetZ(),0);
 			e.self:Message(0,"compelled spirit screams as his essences is forced back into the world of the living. 'What is this? Where am I? Who are you? What do you want from me?");
 		else
-			e.self:SummonItem(62827); -- Item: Mangled Head
-			e.self:SummonItem(62828); -- Item: Animating Heads
-			e.self:SummonItem(62836); -- Item: Soul Stone
+			e.self:SummonItem(62827);
+			e.self:SummonItem(62828);
+			e.self:SummonItem(62836);
 		end
 	-- druid 1.5 final
 	elseif(e.recipe_id ==19892) then
@@ -113,14 +113,14 @@ function event_combine_success(e)
 	elseif(e.recipe_id ==19908) then
 		if(eq.get_zone_short_name()=="anguish") then
 			eq.spawn2(317115, 0, 0, e.self:GetX()+3,e.self:GetY()+3,e.self:GetZ(),0);
-			e.self:SummonItem(62883); -- Item: Essence of Rainfall
-			e.self:SummonItem(62876); -- Item: Insulated Container			
+			e.self:SummonItem(62883);
+			e.self:SummonItem(62876);			
 		else
 			e.self:Message(15,"The rain spirit cannot be reached here");
-			e.self:SummonItem(47100); -- Item: Globe of Discordant Energy
-			e.self:SummonItem(62876); -- Item: Insulated Container
-			e.self:SummonItem(62878); -- Item: Frozen Rain Spirit
-			e.self:SummonItem(62879); -- Item: Everburning Jagged Tree Limb
+			e.self:SummonItem(47100);
+			e.self:SummonItem(62876);
+			e.self:SummonItem(62878);
+			e.self:SummonItem(62879);
 		end
 	--druid 2.0 final
 	elseif(e.recipe_id ==19909) then	

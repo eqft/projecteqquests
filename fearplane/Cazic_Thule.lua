@@ -1,7 +1,7 @@
 -- Call All mobs to aid Cazic Thule if they're still alive
 
 function event_spawn(e)
-	eq.set_timer("Shout",600000);
+	eq.set_timer("Shout", 600000);
 	-- use a timer for the zone repop so that the entire zone is not popping twice immediately on zone bootup.
 	eq.set_timer("RepopZone",5000);
 end
@@ -9,7 +9,7 @@ end
 function event_say(e)
 	if(e.message:findi("gandan has failed in his task")) then
 		e.self:Emote("'s thoughts begin to pervade your own, they creep into your mind with great force. You feel pressure as if your head will explode. You see his thoughts becoming your own. You see in these visions a tome bound in flesh dropped to the ground. You then open your eyes to see that same book, and take it knowing that it was meant for you.");
-		e.other:SummonItem(18898); -- Item: Flayed Skin Tome
+		e.other:SummonItem(18898);
 	end
 end
 
@@ -22,7 +22,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 8226, item2 = 18898, item3 = 18899})) then
 		e.self:Emote("seems pleased with the amount of pain that you have been able to inflict. Cazic Thule then grabs your hands and begins to infuse them with his power. Your hands burn like they were placed in lava for a moment, then feel cool as ice. You can feel the sheer power flowing through your new weapons of pain.");
-		e.other:SummonItem(7836); -- Item: Whistling Fists
+		e.other:SummonItem(7836);
 		e.other:AddEXP(100000);
 		e.other:Ding();
 	end

@@ -7,7 +7,7 @@ sub EVENT_SPAWN{
 sub EVENT_ITEM{
    if(plugin::check_handin(\%itemcount, 13006 => 1)){
       quest::say("Ale brewed, Master.");
-      quest::summonitem(13039); # Item: Ale
+      quest::summonitem(13039);
    }
     plugin::return_items(\%itemcount);
 }

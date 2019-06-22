@@ -7,11 +7,11 @@ sub EVENT_SPAWN {
 
 sub EVENT_TIMER {
   quest::stoptimer(1);
-  quest::signalwith(79127,1,0); # NPC: Raving_Goblinmaster
+  quest::signalwith(79127,1,0);
 }
 
 sub EVENT_DEATH_COMPLETE {
-  quest::signalwith(79127,2,0); # NPC: Raving_Goblinmaster
+  quest::signalwith(79127,2,0);
 }
 
 sub EVENT_SIGNAL {

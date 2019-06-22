@@ -25,14 +25,14 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 10604 => 1)) {
     quest::say("Jeb has spoken with you already, excellent. Tell me are you ready for the test of the phantasm?");
-    quest::summonitem(10604); # Item: Jeb's Seal
-    quest::summonitem(17861); # Item: Enchanters Sack
+    quest::summonitem(10604);
+    quest::summonitem(17861);
   }
   elsif (plugin::check_handin(\%itemcount, 10638 => 1)) {
     quest::say("You have done well, take this last piece and return them to Jeb. He will be able to complete the final crafting.");
-    quest::faction(404,30); # Faction: Truespirit
+    quest::faction(404,30);
     quest::exp(100000);
-    quest::summonitem(10613); # Item: 4th Piece of Staff
+    quest::summonitem(10613);
   }
   plugin::return_items(\%itemcount);
 }

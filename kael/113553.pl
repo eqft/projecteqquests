@@ -7,16 +7,19 @@ sub EVENT_SPAWN {
   quest::enable_proximity_say();
 }
 
+my $dwarf = 0;
+
 sub EVENT_PROXIMITY_SAY {
   if($text=~/dain/i) {
     quest::spawn2(113440,0,0,1126.4,-840.6,-118.3,125.2); #Doldigun, non-loot version
+    $dwarf = 0;
   }
 }
 
 sub EVENT_SIGNAL {
   if ($dwarf == 1) {
-    quest::spawn2(113508,31,0,1126,-840,-118.3,126.8); # NPC: #Doldigun_Steinwielder
-    $dwarf = 0
+    quest::spawn2(113508,31,0,1126,-840,-118.3,126.8);
+    $dwarf = 0;
   }
   elsif ($dwarf != 1) {
     $dwarf = 1;

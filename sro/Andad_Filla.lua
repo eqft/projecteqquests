@@ -18,7 +18,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 20533})) then
 		e.self:Say("You still have a ways to go! Seek out Misty Tekcihta near the arena at Lake Rathe. Run like the wind!");
 		e.other:Ding();
-		e.other:SummonItem(20534); -- Item: Torch of Rathe
+		e.other:SummonItem(20534);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
