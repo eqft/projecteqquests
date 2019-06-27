@@ -12,24 +12,24 @@ sub EVENT_CLICKDOOR
 
 	if($doorid == 138) #guild lobby
   	{
-    		if($client->CalculateDistance(1408, -377, -113) <= 30)
-    		{
-      			if(($client->GetClientVersionBit() & 4294967264)!= 0)
-      			{
-        			quest::MovePCInstance(344,5,18,-46,6,450); # Zone: sirens
-      			}
-      			else
-      			{
-        			quest::movepc(344,18,-46,6,492); # Zone: sirens
-      			}
-    		}
+		#if($client->CalculateDistance(1408, -377, -113) <= 30)
+    		#{
+      		#	if(($client->GetClientVersionBit() & 4294967264)!= 0)
+      		#	{
+        	#		quest::MovePCInstance(344,5,18,-46,6,450);
+      		#	}
+      		#	else
+      		#	{
+        	#		quest::movepc(344,18,-46,6,492);
+      		#	}
+    		#}
 	}
   	if($doorid == 139) #bazaar
   	{
-    		if($client->CalculateDistance(1452, 347, -113) <= 30)
-    		{
-      			quest::movepc(151,-425,0,-25,65); # Zone: gukd
-    		}
+		#if($client->CalculateDistance(1452, 347, -113) <= 30)
+    		#{
+      		#	quest::movepc(151,-425,0,-25,65);
+    		#}
   	}
   	if($doorid == 19)
 	{
