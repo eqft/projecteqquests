@@ -1,8 +1,8 @@
 sub EVENT_SPAWN {
   quest::shout("ZERZURA!");
-  quest::setglobal("kerafyrm",1,7,"F");
-  quest::spawn_condition(sleeper,2,1);
-  quest::spawn_condition(sleeper,1,0);
+  #quest::setglobal("kerafyrm",1,7,"F");
+  #quest::spawn_condition(sleeper,2,1);
+  #quest::spawn_condition(sleeper,1,0);
   quest::forcedooropen(46);
   quest::settimer("depop",1);
 }
@@ -26,7 +26,7 @@ sub EVENT_NPC_SLAY {
 }
 
 sub EVENT_DEATH_COMPLETE { #nearly forgot about this hehe
-  quest::setglobal("kerafyrm",3,7,"F"); 
+    #quest::setglobal("kerafyrm",3,7,"F"); 
   quest::stoptimer("depop");   
   quest::depop();
 }
