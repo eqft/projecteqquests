@@ -1,8 +1,15 @@
 # Items of Benevolence, starts in Skyshrine with Commander Leuz 
 
+my $spawned = 0;
+
+sub EVENT_SPAWN {
+    $spawned = 0;
+}
+
 sub EVENT_ITEM { 
   if ($faction <= 2) {
-    if (plugin::check_handin(\%itemcount, 29683 => 1)) { #Scout Tools
+    if ($spawned == 0 && plugin::check_handin(\%itemcount, 29683 => 1)) { #Scout Tools
+      $spawned = 1;
       quest::say("Great! I was wondering when they would send someone out to give me these. In my haste and excitement of this new assignment I forgot these. This scout business is great I must say. It sure beats setting in Southern Ro studying the ruins. I've been following these Storm Giants for days. They've been wandering up and down the coast looking for something."); 
       quest::faction(430,30);   #Claws of Veeshan
       quest::faction(436,30);  #Yelinak
@@ -16,6 +23,7 @@ sub EVENT_ITEM {
       quest::spawn(120121,0,0,-3452,-4841,-119); # Kromzek Warrior
       quest::spawn(120121,0,0,-3441,-4830,-122); # Kromzek Warrior
       quest::spawn(120121,0,0,-3430,-4819,-124); # Kromzek Warrior
+      quest::settimer("depop", 600);
     }
     elsif (plugin::check_handin(\%itemcount, 29684 => 1)) { #Broken Disk
       quest::faction(430,30);   #Claws of Veeshan
@@ -34,8 +42,15 @@ sub EVENT_ITEM {
     elsif (plugin::check_handin(\%itemcount, 29687 => 1)) { #Talisman of Benevolence
       quest::summonitem(29685); #Robe of Benevolence
     }
-	}
-    plugin::return_items(\%itemcount);
+  }
+
+  plugin::return_items(\%itemcount);
+}
+
+sub EVENT_TIMER {
+    if ($timer eq "depop") {
+        quest::depop_withtimer();
+    }
 }
 
 #End of File, Zone:westwastes  NPC:120000 -- #Scout_Charisa
