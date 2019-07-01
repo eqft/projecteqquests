@@ -17,30 +17,40 @@ sub SendToInstance{
 	my $uguild_id = plugin::val('$uguild_id');
 	my $accountid = $client->AccountID();
 	my $accountname = $client->AccountName();
+    my $raid = $client->GetRaid();
+    my $raid_id = $raid->GetID();
 	my $GETGROUP = plugin::GetGroupID();
 	my $space = "_";
 	%InstType = (
-		"solo" =>	"$name",
-		"guild" =>	"$uguild_id",
-		"group" =>	"$GETGROUP",
+		"solo"   =>	"CH$name",
+		"guild"  =>	"GU$uguild_id",
+		"group"  =>	"GR$GETGROUP",
 		"public" =>	"pub",
+        "raid"   => "RD$raid_id"
 	);
 	my $TYPE = $InstType{$InstanceType};
+
+    return -1 if($InstanceType eq "raid" && !$raid);
+    return -1 if($InstanceType eq "group" && !$GETGROUP);
+    return -1 if($InstanceType eq "guild" && !$uguild_id);
+
 	if($ZoneSN =~ /^[+-]?\d+$/) { #::: Check if it is an integer
 		$ZoneSNTOID = $ZoneSN;
 		$ZoneSN = ListZoneSNToID($ZoneSN);
 	}
 	else{ $ZoneSNTOID = ListZoneSNToID($ZoneSN); }
+
+    my $instanceKey = "inst$space$TYPE$space$InstanceName$space$ZoneSN"; 
+	my $InstID = $qglobals->{$instanceKey};
 	
-	if ($qglobals->{"$TYPE$space$InstanceName$space$ZoneSN"}) { #::: IF THERE IS AN INSTANCE ASSIGNED!
-		my $InstID = $qglobals->{"$TYPE$space$InstanceName$space$ZoneSN"};
+	if ($InstID) { #::: IF THERE IS AN INSTANCE ASSIGNED!
 		quest::AssignToInstance($InstID);
 		quest::MovePCInstance($ZoneSNTOID, $InstID, $GotoX, $GotoY, $GotoZ); 
 	}
 	else { #::: IF THERE ISN'T AN INSTANCE ASSIGNED, ASSIGN IT!
-		my $InstID = quest::CreateInstance("$ZoneSN", $InstVersion, $InstanceDuration);
+		$InstID = quest::CreateInstance("$ZoneSN", $InstVersion, $InstanceDuration);
 		quest::AssignToInstance($InstID); 
-		$client->SetGlobal("$TYPE$space$InstanceName$space$ZoneSN", $InstID, 7, "S$InstanceDuration"); 
+		$client->SetGlobal($instanceKey, $InstID, 7, "S$InstanceDuration"); 
 		quest::write("InstanceLogs/$TYPE$space$InstanceName$space$ZoneSN.txt","[$timestamp] : $name has created instance $zoneln");
 		quest::MovePCInstance($ZoneSNTOID, $InstID, $GotoX, $GotoY, $GotoZ);
 	}	
