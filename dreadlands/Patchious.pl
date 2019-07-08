@@ -3,8 +3,8 @@
 #--------------------
 
 # Zone version
-my $INSTANCE_ZONE     = "fearplane";
-my $INSTANCE_ZONE_NUM = 72;
+my $INSTANCE_ZONE     = "karnor";
+my $INSTANCE_ZONE_NUM = 102;
 my $INSTANCE_VERSION  = 1;
 
 # Number of seconds before a new instance is automatically destroyed
@@ -16,19 +16,19 @@ my $INSTANCE_LIFETIME = 345600; # 4 days
 my $INSTANCE_LOCKOUT  = 345601; # 4 days
 
 # Zone in location inside the instance. Set to -1,-1,-1 to use the safe point.
-my $ENTER_X = 1032.56;
-my $ENTER_Y = -783.85;
-my $ENTER_Z = 108;
-my $ENTER_HEADING = 0;
+my $ENTER_X = 302.05;
+my $ENTER_Y = 22.10;
+my $ENTER_Z = 3.7; 
+my $ENTER_HEADING = 383;
 
 # SW corner of a 30x30 area into which corpses will be summoned.
 # Set to 0,0,0 to summon corpses to the PC's location.
-my $GRAVEYARD_X = 2531.75;
-my $GRAVEYARD_Y = -2350.81;
-my $GRAVEYARD_Z = 3.5;
+my $GRAVEYARD_X = -4677.96;
+my $GRAVEYARD_Y = -1756.95;
+my $GRAVEYARD_Z = -472.7;
 
 # Data bucket key for lockout timer.  CharID is appended.
-my $LOCKOUT_KEY = sprintf("%s-v%s-%s", $INSTANCE_ZONE, $INSTANCE_VERSION, "GroupableEpics");
+my $LOCKOUT_KEY = sprintf("%s-v%s-%s", $INSTANCE_ZONE, $INSTANCE_VERSION, "VSEpicDrops");
 
 # The time zone in which to report lockouts
 my $TZ = "America/New_York";
@@ -38,7 +38,7 @@ my $SOLO_ALLOWED = 0;
 
 # Text triggers
 my $TRIGGER_INFO    = "hail";
-my $TRIGGER_ENTER   = "little death";
+my $TRIGGER_ENTER   = "one of the circle";
 my $TRIGGER_CORPSE  = "corpse";
 my $TRIGGER_REFRESH_RE = "add|refresh|flag|reflag|update";
 
@@ -50,23 +50,23 @@ my $TRIGGER_REFRESH_RE = "add|refresh|flag|reflag|update";
 sub MESSAGE_INFO {
     my $slEnter = quest::saylink($TRIGGER_ENTER);
     my $slCorpse = quest::saylink($TRIGGER_CORPSE);
-    $client->Message(15, "$npcname says, 'Hello, mortal one.  Do you wish to test yourself against the [$slEnter]?'");
-    $client->Message(257, "$npcname whispers, 'If you have lost a [$slCorpse], I can try and retrieve it after the test is complete.'");
+    $client->Message(15, "$npcname says, 'Hello. If you are [$slEnter] sent by Foloal Stormforest then I can help you steal the item of power that makes Venril Sathir so dangerous.  We believe Venril Sathir has left his stronghold temporarily, though the item is still guarded.'");
+    $client->Message(257, "$npcname whispers, 'If you have lost a [$slCorpse], I can try and retrieve it.'");
 }
 
 # Shown when a solo player attempts to enter
 sub MESSAGE_SOLO_PROHIBITED {
-    $client->Message(15, "$npcname intones, 'You may not confront the little death alone.'");
+    $client->Message(15, "$npcname asks, 'It is not safe to go alone.'");
 }
 
 # General failure response
 sub MESSAGE_NOT_ALLOWED {
-    $client->Message(15, "$npcname looks at you and curtly shakes its head.");
+    $client->Message(15, "$npcname looks at you and curtly shakes her head.");
 }
 
 # Instances prohibit entry during the last 2m before they expire or if locked.
 sub MESSAGE_ENTRY_PROHIBITED {
-    $client->Message(15, "$npcname says, 'You may not enter; the test nears its conclusion.'");
+    $client->Message(15, "$npcname says, 'Time grows short!  Venril Sathir is returning!  I cannot sneak you safely into the castle any longer.'");
 }
 
 # Shown when a player asks for corpses but has none to summon.
@@ -142,7 +142,7 @@ sub EVENT_SAY {
                 $client->Message(14, "You are still assigned to a different instance.");
                 MESSAGE_LOCKEDOUT();
                 # Use a visible emote so other nearby players can notice the problem
-                quest::emote("looks at $name and shakes its head.");
+                quest::emote("looks at $name and shakes her head.");
             }
             return;
         }
@@ -168,7 +168,7 @@ sub EVENT_SAY {
             } else {
                 quest::FlagInstanceByGroupLeader($INSTANCE_ZONE_NUM, $INSTANCE_VERSION);
             }
-        } elsif ($status > 10) {
+        } elsif ($status > 20) {
             CREATE_INSTANCE();
         }
 
@@ -249,7 +249,7 @@ sub ENTER_INSTANCE {
     my $itimer = quest::GetInstanceTimerByID($instid);
     if ($itimer > 120) { # 2 minutes 
         SavePlayerLockout();
-        quest::MovePCInstance($INSTANCE_ZONE_NUM, $instid, $ENTER_X, $ENTER_Y, $ENTER_Z, $ENTER_HEADING);
+        $client->MovePCInstance($INSTANCE_ZONE_NUM, $instid, $ENTER_X, $ENTER_Y, $ENTER_Z, $ENTER_HEADING);
     } 
     else {
         MESSAGE_ENTRY_PROHIBITED;

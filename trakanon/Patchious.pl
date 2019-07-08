@@ -3,8 +3,8 @@
 #--------------------
 
 # Zone version
-my $INSTANCE_ZONE     = "fearplane";
-my $INSTANCE_ZONE_NUM = 72;
+my $INSTANCE_ZONE     = "sebilis";
+my $INSTANCE_ZONE_NUM = 89;
 my $INSTANCE_VERSION  = 1;
 
 # Number of seconds before a new instance is automatically destroyed
@@ -16,19 +16,19 @@ my $INSTANCE_LIFETIME = 345600; # 4 days
 my $INSTANCE_LOCKOUT  = 345601; # 4 days
 
 # Zone in location inside the instance. Set to -1,-1,-1 to use the safe point.
-my $ENTER_X = 1032.56;
-my $ENTER_Y = -783.85;
-my $ENTER_Z = 108;
-my $ENTER_HEADING = 0;
+my $ENTER_X = 133.82;
+my $ENTER_Y = -1344.71;
+my $ENTER_Z = -175;
+my $ENTER_HEADING = 253.8;
 
 # SW corner of a 30x30 area into which corpses will be summoned.
 # Set to 0,0,0 to summon corpses to the PC's location.
-my $GRAVEYARD_X = 2531.75;
-my $GRAVEYARD_Y = -2350.81;
-my $GRAVEYARD_Z = 3.5;
+my $GRAVEYARD_X = -4677.96;
+my $GRAVEYARD_Y = -1756.95;
+my $GRAVEYARD_Z = -472.7;
 
 # Data bucket key for lockout timer.  CharID is appended.
-my $LOCKOUT_KEY = sprintf("%s-v%s-%s", $INSTANCE_ZONE, $INSTANCE_VERSION, "GroupableEpics");
+my $LOCKOUT_KEY = sprintf("%s-v%s-%s", $INSTANCE_ZONE, $INSTANCE_VERSION, "UndeadBard");
 
 # The time zone in which to report lockouts
 my $TZ = "America/New_York";
@@ -38,7 +38,7 @@ my $SOLO_ALLOWED = 0;
 
 # Text triggers
 my $TRIGGER_INFO    = "hail";
-my $TRIGGER_ENTER   = "little death";
+my $TRIGGER_ENTER   = "sing the song";
 my $TRIGGER_CORPSE  = "corpse";
 my $TRIGGER_REFRESH_RE = "add|refresh|flag|reflag|update";
 
@@ -49,14 +49,14 @@ my $TRIGGER_REFRESH_RE = "add|refresh|flag|reflag|update";
 # Response to $TRIGGER_INFO (hail)
 sub MESSAGE_INFO {
     my $slEnter = quest::saylink($TRIGGER_ENTER);
-    my $slCorpse = quest::saylink($TRIGGER_CORPSE);
-    $client->Message(15, "$npcname says, 'Hello, mortal one.  Do you wish to test yourself against the [$slEnter]?'");
-    $client->Message(257, "$npcname whispers, 'If you have lost a [$slCorpse], I can try and retrieve it after the test is complete.'");
+    my $slCorpse = quest::saylink("corpse");
+    $client->Message(15, "$npcname says, 'Shall I [$slEnter] that imagines the defeat of Trakanon?  It is an old song written by a long-dead Bard, but it is a happy one.");  
+    $client->Message(257, "$npcname whispers, 'If you have lost a [$slCorpse], I can try and retrieve it.'");
 }
 
 # Shown when a solo player attempts to enter
 sub MESSAGE_SOLO_PROHIBITED {
-    $client->Message(15, "$npcname intones, 'You may not confront the little death alone.'");
+    $client->Message(15, "$npcname intones, 'You may not seek the Undead Bard alone.'");
 }
 
 # General failure response
@@ -66,7 +66,7 @@ sub MESSAGE_NOT_ALLOWED {
 
 # Instances prohibit entry during the last 2m before they expire or if locked.
 sub MESSAGE_ENTRY_PROHIBITED {
-    $client->Message(15, "$npcname says, 'You may not enter; the test nears its conclusion.'");
+    $client->Message(15, "$npcname says, 'You may not enter; the story nears its conclusion.'");
 }
 
 # Shown when a player asks for corpses but has none to summon.
@@ -168,7 +168,7 @@ sub EVENT_SAY {
             } else {
                 quest::FlagInstanceByGroupLeader($INSTANCE_ZONE_NUM, $INSTANCE_VERSION);
             }
-        } elsif ($status > 10) {
+        } elsif ($status > 20) {
             CREATE_INSTANCE();
         }
 
@@ -249,7 +249,7 @@ sub ENTER_INSTANCE {
     my $itimer = quest::GetInstanceTimerByID($instid);
     if ($itimer > 120) { # 2 minutes 
         SavePlayerLockout();
-        quest::MovePCInstance($INSTANCE_ZONE_NUM, $instid, $ENTER_X, $ENTER_Y, $ENTER_Z, $ENTER_HEADING);
+        $client->MovePCInstance($INSTANCE_ZONE_NUM, $instid, $ENTER_X, $ENTER_Y, $ENTER_Z, $ENTER_HEADING);
     } 
     else {
         MESSAGE_ENTRY_PROHIBITED;
