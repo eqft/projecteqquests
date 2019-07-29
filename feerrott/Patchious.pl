@@ -13,7 +13,7 @@ my $INSTANCE_LIFETIME = 345600; # 4 days
 # Number of seconds until a PC can be assigned to a new copy of this instance.
 # Must be greater than the instance lifetime.  If it is not, then this setting
 # is ignored and $INSTANCE_LIFETIME is used instead.
-my $INSTANCE_LOCKOUT  = 345601; # 4 days
+my $INSTANCE_LOCKOUT  = 537600; # 1 week
 
 # Zone in location inside the instance. Set to -1,-1,-1 to use the safe point.
 my $ENTER_X = 1032.56;

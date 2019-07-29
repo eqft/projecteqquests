@@ -13,13 +13,13 @@ my $INSTANCE_LIFETIME = 345600; # 4 days
 # Number of seconds until a PC can be assigned to a new copy of this instance.
 # Must be greater than the instance lifetime.  If it is not, then this setting
 # is ignored and $INSTANCE_LIFETIME is used instead.
-my $INSTANCE_LOCKOUT  = 345601; # 4 days
+my $INSTANCE_LOCKOUT  = 537600; # 1 week
 
 # Zone in location inside the instance. Set to -1,-1,-1 to use the safe point.
 my $ENTER_X = 302.05;
 my $ENTER_Y = 22.10;
 my $ENTER_Z = 3.7; 
-my $ENTER_HEADING = 383;
+my $ENTER_HEADING = 380.0;
 
 # SW corner of a 30x30 area into which corpses will be summoned.
 # Set to 0,0,0 to summon corpses to the PC's location.
@@ -38,7 +38,7 @@ my $SOLO_ALLOWED = 0;
 
 # Text triggers
 my $TRIGGER_INFO    = "hail";
-my $TRIGGER_ENTER   = "one of the circle";
+my $TRIGGER_ENTER   = "raid the coffers";
 my $TRIGGER_CORPSE  = "corpse";
 my $TRIGGER_REFRESH_RE = "add|refresh|flag|reflag|update";
 
@@ -50,7 +50,7 @@ my $TRIGGER_REFRESH_RE = "add|refresh|flag|reflag|update";
 sub MESSAGE_INFO {
     my $slEnter = quest::saylink($TRIGGER_ENTER);
     my $slCorpse = quest::saylink($TRIGGER_CORPSE);
-    $client->Message(15, "$npcname says, 'Hello. If you are [$slEnter] sent by Foloal Stormforest then I can help you steal the item of power that makes Venril Sathir so dangerous.  We believe Venril Sathir has left his stronghold temporarily, though the item is still guarded.'");
+    $client->Message(15, "$npcname says, 'Hello.  My scouts believe Venril Sathir has left his stronghold temporarily.  Time is of the essence if you wish to [$slEnter] for gems and items of power.'");
     $client->Message(257, "$npcname whispers, 'If you have lost a [$slCorpse], I can try and retrieve it.'");
 }
 
@@ -61,12 +61,12 @@ sub MESSAGE_SOLO_PROHIBITED {
 
 # General failure response
 sub MESSAGE_NOT_ALLOWED {
-    $client->Message(15, "$npcname looks at you and curtly shakes her head.");
+    $client->Message(15, "$npcname looks at you and curtly shakes his head.");
 }
 
 # Instances prohibit entry during the last 2m before they expire or if locked.
 sub MESSAGE_ENTRY_PROHIBITED {
-    $client->Message(15, "$npcname says, 'Time grows short!  Venril Sathir is returning!  I cannot sneak you safely into the castle any longer.'");
+    $client->Message(15, "$npcname says, 'Time grows short!  It is no longer safe to enter the castle.'");
 }
 
 # Shown when a player asks for corpses but has none to summon.
@@ -142,7 +142,7 @@ sub EVENT_SAY {
                 $client->Message(14, "You are still assigned to a different instance.");
                 MESSAGE_LOCKEDOUT();
                 # Use a visible emote so other nearby players can notice the problem
-                quest::emote("looks at $name and shakes her head.");
+                quest::emote("looks at $name and shakes his head.");
             }
             return;
         }
